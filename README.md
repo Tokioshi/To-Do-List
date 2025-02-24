@@ -1,52 +1,28 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 To-Do App
 
-## What is CodeIgniter?
+## What is To-Do App?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+A To-Do App is a task management application designed to help users organize, track, and manage their daily tasks efficiently. It provides features such as task creation, editing, and deletion, along with options to set deadlines, priorities, and categories. Some To-Do Apps also include reminders, notifications, and collaboration tools to enhance productivity.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+This repository contains a simple and user-friendly To-Do App built using modern web technologies. It allows users to add tasks, mark them as completed, and remove them when no longer needed. The goal of this project is to provide an intuitive interface for task management while ensuring smooth performance and ease of use.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+More information about the features and usage can be found in the [official documentation](#). The source code is available in this repository, and contributions or suggestions are always welcome.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
-
-## Installation & updates
-
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
-
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+You can read the [user guide](#) to explore more about how to use the application effectively.
 
 ## Setup
 
 Copy `env` to `.env` and tailor for your app, specifically the baseURL
 and any database settings.
 
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
 ## Repository Management
 
 We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
+We use Discord [server](http://discord.gg/wZEYMUZSZ7) to provide SUPPORT and to discuss
 FEATURE REQUESTS.
 
 This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Problems with it can be raised on our server, or as issues in the main repository.
 
 ## Server Requirements
 
