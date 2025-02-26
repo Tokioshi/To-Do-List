@@ -23,21 +23,29 @@ class Note extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 100
             ],
-            'tanggal' => [
+            'prioritas' => [
+                'type' => 'ENUM',
+                'constraint' => ['Tinggi', 'Sedang', 'Rendah'],
+                'default' => 'Rendah'
+            ],
+            'tenggat_waktu' => [
                 'type' => 'DATE'
+            ],
+            'tanggal_dibuat' => [
+                'type' => 'DATE'
+            ],
+            'status' => [
+                'type' => 'ENUM',
+                'constraint' => ['Selesai', 'Berlangsung', 'Belum'],
+                'default' => 'Belum'
             ],
             'deskripsi' => [
                 'type' => 'TEXT'
             ],
-            'status' => [
-                'type' => 'ENUM',
-                'constraint' => ['Selesai', 'Belum'],
-                'default' => 'Belum'
-            ]
         ]);
 
         $this->forge->addKey('id', true);
-		$this->forge->createTable('todo');
+        $this->forge->createTable('todo');
     }
 
     public function down()

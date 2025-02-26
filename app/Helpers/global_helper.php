@@ -20,5 +20,5 @@ function formatTanggal($tanggal)
 
     $namaBulan = $bulan[(int)$date->format('m')];
 
-    return $date->format('d') . ' ' . $namaBulan . ' ' . $date->format('Y');
+    return $date->format('d') . ' ' . $namaBulan . ', ' . $date->format('Y');
 }

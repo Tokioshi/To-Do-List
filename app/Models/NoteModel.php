@@ -12,7 +12,7 @@ class NoteModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'judul', 'tanggal', 'deskripsi', 'status'];
+    protected $allowedFields    = ['nama', 'judul', 'prioritas', 'tenggat_waktu', 'tanggal_dibuat', 'status', 'deskripsi'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -46,7 +46,7 @@ class NoteModel extends Model
 
     public function listData()
     {
-        return $this->findAll();
+        return $this->orderBy("FIELD(prioritas, 'Tinggi', 'Sedang', 'Rendah')")->findAll();
     }
 
     public function getData($parameter)
@@ -60,12 +60,22 @@ class NoteModel extends Model
     public function getKeyword($parameter)
     {
         $builder = $this->table($this->table);
+
         if ($parameter) {
             $builder->groupStart();
             $builder->where('nama', $parameter);
             $builder->orLike('nama', $parameter);
             $builder->groupEnd();
         }
+
+        // Urutkan berdasarkan prioritas secara custom
+        $builder->orderBy("
+        CASE 
+            WHEN prioritas = 'Tinggi' THEN 1
+            WHEN prioritas = 'Sedang' THEN 2
+            WHEN prioritas = 'Rendah' THEN 3
+        END
+    ");
 
         $query = $builder->get();
         return $query->getResultArray();

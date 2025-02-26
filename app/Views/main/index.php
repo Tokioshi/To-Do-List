@@ -41,24 +41,36 @@
                     <table class="table table-bordered text-center">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Judul</th>
-                                <th scope="col">Tanggal</th>
+                                <th scope="col">Prioritas</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Tenggat Waktu</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $i = 1;
+                            $warna_prioritas = [
+                                'Tinggi' => 'danger',
+                                'Sedang' => 'warning',
+                                'Rendah' => 'secondary' 
+                            ];
+                            $warna_status = [
+                                'Selesai' => 'success',
+                                'Berlangsung' => 'primary',
+                                'Belum' => 'secondary'
+                            ];
                             foreach ($note as $n) :
                                 $id_note = $n['id'];
                             ?>
-                                <tr>
-                                    <th scope="row"><?= $i++; ?></th>
+                                <tr class="text-center align-middle">
                                     <td><?= $n['nama']; ?></td>
                                     <td><?= $n['judul']; ?></td>
-                                    <td><?= formatTanggal($n['tanggal']); ?></td>
+                                    <td><span class="badge text-<?= $warna_prioritas[$n['prioritas']] ?> bg-<?= $warna_prioritas[$n['prioritas']] ?>-subtle border border-<?= $warna_prioritas[$n['prioritas']] ?>-subtle"><?= $n['prioritas']; ?></span></td>
+                                    <td><span class="badge text-<?= $warna_status[$n['status']] ?> bg-<?= $warna_status[$n['status']] ?>-subtle border border-<?= $warna_status[$n['status']] ?>-subtle"><?= $n['status']; ?></span></td>
+                                    <td><?= formatTanggal($n['tenggat_waktu']); ?></td>
                                     <td>
                                         <div class="btn-group dropstart">
                                             <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

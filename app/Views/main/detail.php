@@ -16,8 +16,20 @@
                         <input type="text" class="form-control" id="judul" value="<?= $dataNote['judul']; ?>" disabled>
                     </div>
                     <div class="mb-3">
-                        <label for="tanggal" class="form-label">Tanggal</label>
-                        <input type="text" class="form-control" id="tanggal" value="<?= formatTanggal($dataNote['tanggal']) ?>" disabled>
+                        <label for="prioritas" class="form-label">Prioritas</label>
+                        <input type="text" class="form-control" id="prioritas" value="<?= $dataNote['prioritas']; ?>" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tenggat_waktu" class="form-label">Tenggat Waktu</label>
+                        <input type="text" class="form-control" id="tenggat_waktu" value="<?= formatTanggal($dataNote['tenggat_waktu']) ?>" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tanggal_dibuat" class="form-label">Tanggal Dibuat</label>
+                        <input type="text" class="form-control" id="tanggal_dibuat" value="<?= formatTanggal($dataNote['tanggal_dibuat']) ?>" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <input type="text" class="form-control" id="status" value="<?= $dataNote['status']; ?>" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>

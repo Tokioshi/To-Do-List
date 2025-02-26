@@ -98,6 +98,19 @@ class Home extends BaseController
                     'required' => 'Judul harus diisi!'
                 ]
             ],
+            'prioritas' => [
+                'rules' => 'required|in_list[Tinggi,Sedang,Rendah]',
+                'errors' => [
+                    'required' => 'Harap pilih prioritas tugas!',
+                    'in_list' => 'Pilihan prioritas tidak valid!'
+                ]
+            ],
+            'tenggat_waktu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tenggat Waktu harus diisi!'
+                ]
+            ],
             'deskripsi' => [
                 'rules' => 'required',
                 'errors' => [
@@ -111,7 +124,9 @@ class Home extends BaseController
         $this->note->save([
             'nama' => $this->request->getVar('nama'),
             'judul' => $this->request->getVar('judul'),
-            'tanggal' => date('Y-m-d'),
+            'prioritas' => $this->request->getVar('prioritas'),
+            'tenggat_waktu' => $this->request->getVar('tenggat_waktu'),
+            'tanggal_dibuat' => date('Y-m-d'),
             'deskripsi' => $this->request->getVar('deskripsi'),
             'status' => 'Belum'
         ]);
@@ -136,6 +151,26 @@ class Home extends BaseController
                     'required' => 'Judul harus diisi!'
                 ]
             ],
+            'prioritas' => [
+                'rules' => 'required|in_list[Tinggi,Sedang,Rendah]',
+                'errors' => [
+                    'required' => 'Harap pilih prioritas tugas!',
+                    'in_list' => 'Pilihan prioritas tidak valid!'
+                ]
+            ],
+            'tenggat_waktu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Tenggat Waktu harus diisi!'
+                ]
+            ],
+            'status' => [
+                'rules' => 'required|in_list[Selesai,Berlangsung,Belum]',
+                'errors' => [
+                    'required' => 'Harap pilih status tugas!',
+                    'in_list' => 'Pilihan status tidak valid!'
+                ]
+            ],
             'deskripsi' => [
                 'rules' => 'required',
                 'errors' => [
@@ -149,7 +184,10 @@ class Home extends BaseController
         $this->note->update($id_note, [
             'nama' => $this->request->getVar('nama'),
             'judul' => $this->request->getVar('judul'),
-            'tanggal' => date('Y-m-d'),
+            'prioritas' => $this->request->getVar('prioritas'),
+            'tenggat_waktu' => $this->request->getVar('tenggat_waktu'),
+            'tanggal_dibuat' => date('Y-m-d'),
+            'status' => $this->request->getVar('status'),
             'deskripsi' => $this->request->getVar('deskripsi')
         ]);
 
@@ -194,7 +232,9 @@ class Home extends BaseController
             return redirect()->to('/');
         }
 
-        $this->note->delete($id_note);
+        $this->note->update($id_note, [
+            'status' => 'Selesai',
+        ]);
 
         session()->setFlashdata('pesan', '🎉 Tugas berhasil diselesaikan! 🎉');
 

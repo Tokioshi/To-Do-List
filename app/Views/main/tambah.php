@@ -23,6 +23,39 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <label for="prioritas" class="form-label">Prioritas</label>
+                        <select id="prioritas" name="prioritas" class="form-control <?= ($validation->hasError('prioritas')) ? 'is-invalid' : ''; ?>">
+                            <option disabled selected <?= (old('prioritas') || ($opsi === 'update' && isset($dataNote['prioritas']))) ? '' : 'selected' ?>>--Pilih--</option>
+                            <option value="Tinggi" <?= (old('prioritas') == 'Tinggi' || ($opsi === 'update' && isset($dataNote['prioritas']) && $dataNote['prioritas'] == 'Tinggi')) ? 'selected' : ''; ?>>Tinggi</option>
+                            <option value="Sedang" <?= (old('prioritas') == 'Sedang' || ($opsi === 'update' && isset($dataNote['prioritas']) && $dataNote['prioritas'] == 'Sedang')) ? 'selected' : ''; ?>>Sedang</option>
+                            <option value="Rendah" <?= (old('prioritas') == 'Rendah' || ($opsi === 'update' && isset($dataNote['prioritas']) && $dataNote['prioritas'] == 'Rendah')) ? 'selected' : ''; ?>>Rendah</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('prioritas'); ?>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tenggat_waktu" class="form-label">Tenggat Waktu</label>
+                        <input type="date" id="tenggat_waktu" name="tenggat_waktu" class="form-control <?= ($validation->hasError('tenggat_waktu')) ? 'is-invalid' : ''; ?>" value="<?= old('tenggat_waktu') ?: ($opsi === 'update' && isset($dataNote['tenggat_waktu']) ? $dataNote['tenggat_waktu'] : ''); ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('tenggat_waktu'); ?>
+                        </div>
+                    </div>
+                    <?php if ($opsi == 'update') : ?>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">status</label>
+                            <select id="status" name="status" class="form-control <?= ($validation->hasError('status')) ? 'is-invalid' : ''; ?>">
+                                <option disabled selected <?= (old('status') || ($opsi === 'update' && isset($dataNote['status']))) ? '' : 'selected' ?>>--Pilih--</option>
+                                <option value="Selesai" <?= (old('status') == 'Selesai' || ($opsi === 'update' && isset($dataNote['status']) && $dataNote['status'] == 'Selesai')) ? 'selected' : ''; ?>>Selesai</option>
+                                <option value="Berlangsung" <?= (old('status') == 'Berlangsung' || ($opsi === 'update' && isset($dataNote['status']) && $dataNote['status'] == 'Berlangsung')) ? 'selected' : ''; ?>>Berlangsung</option>
+                                <option value="Belum" <?= (old('status') == 'Belum' || ($opsi === 'update' && isset($dataNote['status']) && $dataNote['status'] == 'Belum')) ? 'selected' : ''; ?>>Belum</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('status'); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" name="deskripsi"><?= old('deskripsi') ?: ($opsi === 'update' && isset($dataNote['deskripsi']) ? $dataNote['deskripsi'] : ''); ?></textarea>
                         <div class="invalid-feedback">
