@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+/* * {
+    font-family: 'poppins', sans-serif;
+} */
+
+body, button {
+    font-family: "Inter", sans-serif;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.btn-custom {
+    transition: all 0.3s ease;
+}
+
+/* Gunakan attribute selector untuk target berdasarkan data attribute */
+[data-action="edit"].btn-custom:hover {
+    background-color: yellow;
+    color: black;
+}
+
+[data-action="delete"].btn-custom:hover {
+    background-color: red;
+    color: white;
+}
+
+[data-action="detail"].btn-custom:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+[data-action="selesai"].btn-custom:hover {
+    background-color: #6ff366;
+    color: black;
+}
+
+@media (max-width: 576px) {
+    .d-flex {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .form-control {
+        max-width: 100% !important;
+        margin-right: 0 !important;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
