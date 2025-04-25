@@ -47,7 +47,7 @@
                             <select id="status" name="status" class="form-control <?= ($validation->hasError('status')) ? 'is-invalid' : ''; ?>">
                                 <option disabled selected <?= (old('status') || ($opsi === 'update' && isset($dataNote['status']))) ? '' : 'selected' ?>>--Pilih--</option>
                                 <option value="Selesai" <?= (old('status') == 'Selesai' || ($opsi === 'update' && isset($dataNote['status']) && $dataNote['status'] == 'Selesai')) ? 'selected' : ''; ?>>Selesai</option>
-                                <option value="Belum" <?= (old('status') == 'Belum' || ($opsi === 'update' && isset($dataNote['status']) && $dataNote['status'] == 'Belum')) ? 'selected' : ''; ?>>Belum</option>
+                                <option value="Belum Selesai" <?= (old('status') == 'Belum Selesai' || ($opsi === 'update' && isset($dataNote['status']) && $dataNote['status'] == 'Belum Selesai')) ? 'selected' : ''; ?>>Belum Selesai</option>
                             </select>
                             <div class="invalid-feedback">
                                 <?= $validation->getError('status'); ?>

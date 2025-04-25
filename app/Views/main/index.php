@@ -60,7 +60,7 @@
                                 ];
                                 $warna_status = [
                                     'Selesai' => 'success',
-                                    'Belum' => 'secondary'
+                                    'Belum Selesai' => 'secondary'
                                 ];
                                 foreach ($note as $n) :
                                     $id_note = $n['id'];

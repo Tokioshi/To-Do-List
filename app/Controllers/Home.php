@@ -130,7 +130,7 @@ class Home extends BaseController
             'tenggat_waktu' => $this->request->getVar('tenggat_waktu'),
             'tanggal_dibuat' => date('Y-m-d'),
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'status' => 'Belum'
+            'status' => 'Belum Selesai'
         ]);
 
         session()->setFlashdata('pesan', 'Data berhasil disimpan!');
@@ -167,7 +167,7 @@ class Home extends BaseController
                 ]
             ],
             'status' => [
-                'rules' => 'required|in_list[Selesai,Belum]',
+                'rules' => 'required|in_list[Selesai,Belum Selesai]',
                 'errors' => [
                     'required' => 'Harap pilih status tugas!',
                     'in_list' => 'Pilihan status tidak valid!'
